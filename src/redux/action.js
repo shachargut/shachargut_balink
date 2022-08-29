@@ -2,6 +2,7 @@ export const ADD_TO_CART = 'ADD_TO_CART'
 export const UPDATE_CART = 'UPDATE_CART' 
 export const DELETE_FROM_CART = 'DELETE_FROM_CART' 
 export const ORDER = 'ORDER' 
+export const RESTART_CART = 'RESTART_CART' 
 
 
 export const addToCart = (product) => ({
@@ -20,3 +21,7 @@ export const addOrderDetails = (id) => ({
     type:'ORDER',
     payload:id
 })
+export const restartCart = () => ({
+    type:'RESTART_CART',
+})
+

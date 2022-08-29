@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import './style.css'
 import axios from 'axios'
 import {useSelector, useDispatch} from 'react-redux'
-import{addOrderDetails} from '../../redux/action'
+import{addOrderDetails, addToCart, restartCart} from '../../redux/action'
 import { useNavigate,useLocation } from 'react-router-dom';
+import Loading from '../../componens/Loading'
 
 function Order() {
    const [formD, setFormD] = useState({})
+   const [loadingO,setLoadingO] = useState(false)
    const navigate = useNavigate();
    const dispatch = useDispatch();
    const cart = useSelector((state)=> state.cart)
@@ -23,6 +25,7 @@ function Order() {
 
     async function onClickBuy(){
       if (formD.firstName&&formD.lastName&&formD.phoneNumber&&formD.address) {
+        setLoadingO(true)
         let data = cart
         let bookOjects = {}
         let dataB = cart?.forEach((v)=>{
@@ -56,13 +59,18 @@ function Order() {
           })
           console.log(result.data.data.insert_orders.returning[0].id);
           dispatch(addOrderDetails({id:result.data.data.insert_orders.returning[0].id,firstName:formD.firstName, lastName:formD.lastName, store:cart[0].store.name}))
+          dispatch(restartCart())
           navigate('/thanks')
         }
           else{
             alert("you need to fill all the fields")
           }
     }
-
+  if(loadingO){
+    return(
+      <Loading page={"Order details is"}/>
+    )
+  }
    console.log(formD);
 
   return (

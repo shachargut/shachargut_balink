@@ -11,6 +11,9 @@
     flex-wrap: wrap;
 }
 @media (max-width: 1000px) {
+    /* .header{
+        position: fixed;
+    } */
     .hp-container{
         width: 95%;
         padding-top: 2rem;

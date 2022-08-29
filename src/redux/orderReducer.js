@@ -1,4 +1,4 @@
-import {ADD_TO_CART,UPDATE_CART,DELETE_FROM_CART,ORDER} from './action'
+import {ADD_TO_CART,UPDATE_CART,DELETE_FROM_CART,ORDER,RESTART_CART} from './action'
 const initialState ={
     cart:[],
     order:""
@@ -17,6 +17,8 @@ export const orederReducer = (state=initialState,action) => {
             return {...state, cart:state.cart?.filter((v)=>v.id!=action.payload.id)}
         case ORDER:
             return {...state, order:action.payload}                                                           
+        case RESTART_CART:
+            return {...state, cart:[]}                                                           
         default:
             return state;    
     }
