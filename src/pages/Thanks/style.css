@@ -1,0 +1,35 @@
+.thanks-wrapper{
+   height: 100%;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items:center ;
+}
+.thanks-container{
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+.tnk-tlt{
+    font-size: 3rem;
+    font-weight: 500;
+}
+.thk-content{
+    font-size: 30px;
+    font-weight: 450;
+}
+
+
+@media (max-width: 800px) {
+    .tnk-tlt{
+        font-size: 2rem;
+        font-weight: 500;
+    }
+    .thk-content{
+        font-size: 0.9rem;
+        font-weight: 450;
+        /* font-weight: 500; */
+    }
+}

@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 function Bookcard(props) {
     let navigate = useNavigate();
   
-
     const onClickStore = (id) =>{
         navigate( `/product/?${id}`);
     }

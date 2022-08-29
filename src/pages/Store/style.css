@@ -1,0 +1,33 @@
+.store-page{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.st-container{
+    width: 95%;
+    padding-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1000px) {
+    .st-container{
+        width: 95%;
+        padding-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 550px) {
+    .st-container{
+        width: 95%;
+        padding-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

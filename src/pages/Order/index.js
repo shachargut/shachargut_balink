@@ -2,9 +2,13 @@ import React, { useState } from 'react'
 import './style.css'
 import axios from 'axios'
 import {useSelector, useDispatch} from 'react-redux'
+import{addOrderDetails} from '../../redux/action'
+import { useNavigate,useLocation } from 'react-router-dom';
 
 function Order() {
    const [formD, setFormD] = useState({})
+   const navigate = useNavigate();
+   const dispatch = useDispatch();
    const cart = useSelector((state)=> state.cart)
 
    function changeD(e){
@@ -18,7 +22,7 @@ function Order() {
     })}
 
     async function onClickBuy(){
-      if (formD.firstName&&formD.lastName) {
+      if (formD.firstName&&formD.lastName&&formD.phoneNumber&&formD.address) {
         let data = cart
         let bookOjects = {}
         let dataB = cart?.forEach((v)=>{
@@ -50,7 +54,9 @@ function Order() {
             ]
           }
           })
-          console.log(result);
+          console.log(result.data.data.insert_orders.returning[0].id);
+          dispatch(addOrderDetails({id:result.data.data.insert_orders.returning[0].id,firstName:formD.firstName, lastName:formD.lastName, store:cart[0].store.name}))
+          navigate('/thanks')
         }
           else{
             alert("you need to fill all the fields")

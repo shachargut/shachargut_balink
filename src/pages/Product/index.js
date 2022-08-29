@@ -46,6 +46,9 @@ function Product() {
                     paperback
                     ratings
                     stars
+                    store {
+                      name
+                    }
                 }
               }`,variables: {
                 "booksByPkId":  String(id).replace("=","")
@@ -79,7 +82,7 @@ function Product() {
                 </div>
             </div>
             <div className='main-description'>
-                <p>{book.description}</p>
+                {book.description}
             </div>
             <div className='main-footer'>
                 <div className='PD-details'>Product details</div>

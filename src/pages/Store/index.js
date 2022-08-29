@@ -50,8 +50,8 @@ function Store() {
     } 
   
     return (
-      <div className='home-page'>
-      <div className='hp-container'>
+      <div className='store-page'>
+      <div className='st-container'>
           {books?.map((book)=><Bookcard {...book}/>)}
       </div>
       </div>

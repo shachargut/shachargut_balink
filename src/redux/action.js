@@ -1,6 +1,7 @@
 export const ADD_TO_CART = 'ADD_TO_CART' 
 export const UPDATE_CART = 'UPDATE_CART' 
 export const DELETE_FROM_CART = 'DELETE_FROM_CART' 
+export const ORDER = 'ORDER' 
 
 
 export const addToCart = (product) => ({
@@ -14,4 +15,8 @@ export const updateCart = (product) => ({
 export const deleteItem = (product) => ({
     type:'DELETE_FROM_CART',
     payload:product
+})
+export const addOrderDetails = (id) => ({
+    type:'ORDER',
+    payload:id
 })

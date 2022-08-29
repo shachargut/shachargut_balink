@@ -6,6 +6,7 @@ import Store from '../../pages/Store'
 import Product from '../../pages/Product'
 import Cart from '../../pages/Cart'
 import Order from '../../pages/Order'
+import Thanks from '../../pages/Thanks'
 
 function Main() {
   return (
@@ -16,6 +17,7 @@ function Main() {
         <Route path='/product' element={<Product/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/order' element={<Order/>}/>
+        <Route path='/thanks' element={<Thanks/>}/>
       </Routes>
     </div>
   )
