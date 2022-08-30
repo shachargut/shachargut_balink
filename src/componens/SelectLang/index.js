@@ -6,7 +6,12 @@ import {useSelector, useDispatch} from 'react-redux'
 function SelectLang() {
   const slanguage = useSelector((state)=> state.languageSelected)
   const dispatch = useDispatch();
+
   function changelan(language){
+    if(language=='Hebrew'){
+      document.getElementsByClassName('main')[0].setAttribute("dir", "rtl");
+    }
+    else{document.getElementsByClassName('main')[0].setAttribute("dir", "");}
     dispatch(changaeLanguage(language))
   }
 

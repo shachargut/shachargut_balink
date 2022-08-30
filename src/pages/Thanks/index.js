@@ -10,9 +10,9 @@ function Thanks() {
   return (
    <div className='thanks-wrapper'>
     <div className='thanks-container'> 
-    <div className='tnk-tlt' >{tranzlation[language].Thanks.congrats}, {order.firstName} {order.lastName}</div>
-    <div className='thk-content'>{tranzlation[language].Thanks.yOrder}: {order.id}</div>
-    <div className='thk-content'>{order.store} {tranzlation[language].Thanks.hopeSeeAG}</div>
+      <div className='tnk-tlt' >{tranzlation[language].Thanks.congrats}, {order.firstName} {order.lastName}</div>
+      <div className='thk-content'>{tranzlation[language].Thanks.yOrder}: {order.id}</div>
+      <div className='thk-content'>{order.store} {tranzlation[language].Thanks.hopeSeeAG}</div>
     </div>
   </div> 
   )
