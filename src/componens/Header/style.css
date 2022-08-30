@@ -6,8 +6,8 @@
     box-shadow: 0px 0px 14px 0px #bcabab;
     display: flex;
     justify-content: center;
-    /* position: fixed;
-    font-family: 'Kalam', cursive; */ 
+    position: fixed;
+    /* font-family: 'Kalam', cursive; */ 
 }
 .hContainer{
     width: 93%;

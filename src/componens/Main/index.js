@@ -11,6 +11,8 @@ import SelectLang from '../SelectLang'
 
 function Main() {
   return (
+    <div className='main-main'>
+      <div className='margintoptomain'></div>
     <div className='main'>
       <SelectLang/>
       <Routes>
@@ -21,6 +23,7 @@ function Main() {
         <Route path='/order' element={<Order/>}/>
         <Route path='/thanks' element={<Thanks/>}/>
       </Routes>
+    </div>
     </div>
   )
 }

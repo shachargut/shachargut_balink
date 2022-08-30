@@ -1,5 +1,10 @@
 .main{
     height: calc(100vh - 60px) !important;
+    overflow: auto;
+
     /* display: flex;
     flex-wrap: wrap; */
+}
+.margintoptomain{
+    height: 60px;
 }

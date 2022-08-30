@@ -135,7 +135,7 @@
     .main-description{
         font-size: smaller;
         height: 30%;
-    overflow: auto;
+        overflow: auto;
     }
 }
 

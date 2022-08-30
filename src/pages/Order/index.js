@@ -19,7 +19,6 @@ function Order() {
    function changeD(e){
     const name = e.target.name;
     const value = e.target.value;
-
     
     setFormD((currentFormData)=>{
       return {
@@ -53,7 +52,7 @@ function Order() {
               {
                 "address": formD.address,
                 "amount": cart.length,
-                "books": {"8f48a306-a096-4e35-b12e-34bd6c00ff04":4},
+                "books": bookOjects,
                 "firstName": formD.firstName,
                 "lastName": formD.lastName,
                 "phone_number": formD.phoneNumber
