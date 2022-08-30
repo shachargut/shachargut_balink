@@ -2,11 +2,14 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Loading from '../../componens/Loading';
 import Storecard from '../../componens/Storecard';
+import tranzlation from '../../languages/tranzlation';
+import {useSelector, useDispatch} from 'react-redux'
 import './style.css'
 
 function Homepage() {
   const [stores,setStores] = useState([]);
   const [loading,setLoading] = useState(false);
+  const language = useSelector((state)=> state.languageSelected)
 
   useEffect(()=>{
     const bringData = async () => {
@@ -37,7 +40,7 @@ function Homepage() {
 
   if (!loading) {
     return (
-        <Loading page = {"home page"}/>
+        <Loading page = {tranzlation[language].Homepage.page}/>
     )
   } 
 

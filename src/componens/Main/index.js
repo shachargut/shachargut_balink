@@ -7,10 +7,12 @@ import Product from '../../pages/Product'
 import Cart from '../../pages/Cart'
 import Order from '../../pages/Order'
 import Thanks from '../../pages/Thanks'
+import SelectLang from '../SelectLang'
 
 function Main() {
   return (
     <div className='main'>
+      <SelectLang/>
       <Routes>
         <Route path='/' element={<Homepage/>}/>
         <Route path='/store' element={<Store/>}/>

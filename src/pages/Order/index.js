@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './style.css'
 import axios from 'axios'
+import tranzlation from '../../languages/tranzlation';
 import {useSelector, useDispatch} from 'react-redux'
 import{addOrderDetails, addToCart, restartCart} from '../../redux/action'
 import { useNavigate,useLocation } from 'react-router-dom';
@@ -12,6 +13,8 @@ function Order() {
    const navigate = useNavigate();
    const dispatch = useDispatch();
    const cart = useSelector((state)=> state.cart)
+   const language = useSelector((state)=> state.languageSelected)
+
 
    function changeD(e){
     const name = e.target.name;
@@ -68,7 +71,7 @@ function Order() {
     }
   if(loadingO){
     return(
-      <Loading page={"Order details is"}/>
+      <Loading page={tranzlation[language].Order.page}/>
     )
   }
    console.log(formD);
@@ -77,15 +80,15 @@ function Order() {
     <div className='order-wrap'>
       <div className='order-box'>
         <div className='order-container'>
-          <div className='order-title'>Finalize Order</div>
+          <div className='order-title'>{tranzlation[language].Order.title}</div>
           <div className='inpName-wrap'>
-            <input className='inputShort halfI' placeholder='First name' name='firstName' onChange={(e)=>changeD(e)}/>
-            <input className='inputShort halfI' placeholder='Last name' name='lastName' onChange={(e)=>changeD(e)}/>
+            <input className='inputShort halfI' placeholder={tranzlation[language].Order.placeHolder.fName} name='firstName' onChange={(e)=>changeD(e)}/>
+            <input className='inputShort halfI' placeholder={tranzlation[language].Order.placeHolder.lName} name='lastName' onChange={(e)=>changeD(e)}/>
           </div>
-          <input className='inputShort'  placeholder='Address' name='address' onChange={(e)=>changeD(e)}/>
-          <input className='inputShort' type={'number'} placeholder='Phone number' name='phoneNumber' onChange={(e)=>changeD(e)}/>
+          <input className='inputShort'  placeholder={tranzlation[language].Order.placeHolder.address} name='address' onChange={(e)=>changeD(e)}/>
+          <input className='inputShort' type={'number'} placeholder={tranzlation[language].Order.placeHolder.pNumber} name='phoneNumber' onChange={(e)=>changeD(e)}/>
           <div className='btnB-wrapper'>
-             <div className='btnBuy' onClick={()=>{onClickBuy()}}>Buy</div>
+             <div className='btnBuy' onClick={()=>{onClickBuy()}}>{tranzlation[language].Order.btnBuy}</div>
           </div>
         </div>
       </div>

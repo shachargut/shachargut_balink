@@ -1,7 +1,8 @@
-import {ADD_TO_CART,UPDATE_CART,DELETE_FROM_CART,ORDER,RESTART_CART} from './action'
+import {ADD_TO_CART,UPDATE_CART,DELETE_FROM_CART,ORDER,RESTART_CART,CHANGE_LANGUAGE} from './action'
 const initialState ={
     cart:[],
-    order:""
+    order:"",
+    languageSelected:"French"
 }
 export const orederReducer = (state=initialState,action) => {
     switch(action.type){
@@ -19,6 +20,8 @@ export const orederReducer = (state=initialState,action) => {
             return {...state, order:action.payload}                                                           
         case RESTART_CART:
             return {...state, cart:[]}                                                           
+        case CHANGE_LANGUAGE:
+            return {...state, languageSelected:action.payload}                                                           
         default:
             return state;    
     }

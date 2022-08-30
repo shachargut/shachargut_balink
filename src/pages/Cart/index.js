@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './style.css'
+import tranzlation from '../../languages/tranzlation';
 import {useSelector, useDispatch} from 'react-redux'
 import{deleteItem} from '../../redux/action'
 import { useNavigate } from 'react-router-dom';
@@ -7,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 function Cart() {
   const [total,setTotal] = useState(0)  
   const cart = useSelector((state)=> state.cart);
+  const language = useSelector((state)=> state.languageSelected)
   const dispatch = useDispatch();
   let navigate = useNavigate();
   
@@ -36,10 +38,10 @@ function Cart() {
       <div className='cart-table'>
         <table>
             <tr>
-               <th>Name</th>
-               <th>Quantity</th>
-               <th>Price</th>
-               <th>del</th>
+               <th>{tranzlation[language].Cart.table.fristLine.Name}</th>
+               <th>{tranzlation[language].Cart.table.fristLine.Quantity}</th>
+               <th>{tranzlation[language].Cart.table.fristLine.Price}</th>
+               <th>{tranzlation[language].Cart.table.fristLine.Del}</th>
              </tr>
         {cart?.map((v)=>{
             return(
@@ -52,7 +54,7 @@ function Cart() {
             )
         })}
                  <tr>
-                 <th>Total to pay</th>
+                 <th>{tranzlation[language].Cart.table.totalPay}</th>
                    <td></td>
                    <td>{total} €</td>
                    <td></td>
@@ -60,7 +62,7 @@ function Cart() {
         </table>
       </div>
       <div className='btn-n-wrap'>
-          <div className='nextbtn' onClick={()=>NavigateToOrder()}>Next</div>
+          <div className='nextbtn' onClick={()=>NavigateToOrder()}>{tranzlation[language].Cart.btnNext}</div>
       </div>
       </div> 
     </div>

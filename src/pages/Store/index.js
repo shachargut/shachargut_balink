@@ -1,6 +1,8 @@
 import './style.css'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import tranzlation from '../../languages/tranzlation';
+import {useSelector, useDispatch} from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 import Storecard from '../../componens/Storecard';
 import Bookcard from '../../componens/Bookcard';
@@ -10,7 +12,8 @@ function Store() {
     const [books,setBooks] = useState([]);
     const [loading,setLoading] = useState(false);
     const [id, setId] = useSearchParams();
-    
+    const language = useSelector((state)=> state.languageSelected)
+
 
     useEffect(()=>{
       const bringData = async () => {
@@ -45,7 +48,7 @@ function Store() {
 
     if (!loading) {
       return (
-          <Loading page = {"store"}/>
+          <Loading page = {tranzlation[language].Store.page}/>
       )
     } 
   

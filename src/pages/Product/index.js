@@ -1,6 +1,7 @@
 import './style.css'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import tranzlation from '../../languages/tranzlation';
 import { useSearchParams } from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import{addToCart,updateCart} from '../../redux/action'
@@ -12,6 +13,8 @@ function Product() {
     const [loading,setLoading] = useState(false);
     const dispatch = useDispatch();
     const cart = useSelector((state)=> state.cart)
+    const language = useSelector((state)=> state.languageSelected)
+
     
     function addBookToCart () {
       let result = cart?.find((v)=>v.id==book.id)
@@ -65,7 +68,7 @@ function Product() {
 
     if (!loading) {
       return (
-          <Loading page = {"Book details"}/>
+          <Loading page = {tranzlation[language].Product.page}/>
       )
     } 
   
@@ -85,11 +88,11 @@ function Product() {
                 {book.description}
             </div>
             <div className='main-footer'>
-                <div className='PD-details'>Product details</div>
+                <div className='PD-details'>{tranzlation[language].Product.main.titleDetailes}:</div>
                 <div className='wrap-content-footer'>
-                    <div className='content-footer'><div style={{"font-weight":"550"}}>Publisher: </div><div style={{"margin-left":"1%"}}>{book.publisher}</div></div>
-                    <div className='content-footer'><div style={{"font-weight":"550"}}>Language: </div><div style={{"margin-left":"1%"}}> {book.language}</div></div>
-                    <div className='content-footer'><div style={{"font-weight":"550"}}>Paperback: </div><div style={{"margin-left":"1%"}}> {book.paperback}</div></div>
+                    <div className='content-footer'><div style={{"font-weight":"550"}}>{tranzlation[language].Product.main.Publisher}: </div><div style={{"margin-left":"1%"}}>{book.publisher}</div></div>
+                    <div className='content-footer'><div style={{"font-weight":"550"}}>{tranzlation[language].Product.main.Language}: </div><div style={{"margin-left":"1%"}}> {book.language}</div></div>
+                    <div className='content-footer'><div style={{"font-weight":"550"}}>{tranzlation[language].Product.main.Paperback}: </div><div style={{"margin-left":"1%"}}> {book.paperback}</div></div>
                 </div>
             </div>
         </div>
@@ -97,11 +100,12 @@ function Product() {
             <div className='container-nav'>
                 <div className='wrap-h-c'>
                  <div className='nav-header'>
-                    <div>buy:</div><div>{book.price}€</div>
+                    <div>{tranzlation[language].Product.nav.buy}:</div><div>{book.price}€</div>
+                    <div>{tranzlation[language].Product.nav.quantity}:</div><div>{book.quantity}</div>
                  </div>
                </div>
                <div className='nav-footer'>
-                 <div className='addToCartbtn' onClick={()=>{addBookToCart()}}>add to cart</div>
+                 <div className='addToCartbtn' onClick={()=>{addBookToCart()}}>{tranzlation[language].Product.nav.btnAddToCart}</div>
                </div>
             </div>
         </div>
