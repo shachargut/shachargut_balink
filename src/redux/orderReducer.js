@@ -2,7 +2,7 @@ import {ADD_TO_CART,UPDATE_CART,DELETE_FROM_CART,ORDER,RESTART_CART,CHANGE_LANGU
 const initialState ={
     cart:[],
     order:"",
-    languageSelected:"French"
+    languageSelected:"English"
 }
 export const orederReducer = (state=initialState,action) => {
     switch(action.type){

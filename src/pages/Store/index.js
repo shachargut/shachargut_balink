@@ -37,7 +37,6 @@ function Store() {
                   }
               }
             });
-          console.log(result.data.data.books);
           setBooks(result.data.data.books);
           setLoading(true);
       }

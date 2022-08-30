@@ -64,6 +64,9 @@
     background-color: #020202;
     color: #ffffff;
 }
+.form{
+    display: contents; 
+}
 
 @media (max-width: 1100px) {
     .order-box{

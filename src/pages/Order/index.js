@@ -19,6 +19,8 @@ function Order() {
    function changeD(e){
     const name = e.target.name;
     const value = e.target.value;
+
+    
     setFormD((currentFormData)=>{
       return {
         ...currentFormData,
@@ -26,8 +28,9 @@ function Order() {
       }
     })}
 
-    async function onClickBuy(){
-      if (formD.firstName&&formD.lastName&&formD.phoneNumber&&formD.address) {
+    async function onClickBuy(e){
+      
+      if (formD.firstName&&formD.lastName&&formD.phoneNumber>500000000&&formD.phoneNumber<599999999&&formD.address) {
         setLoadingO(true)
         let data = cart
         let bookOjects = {}
@@ -37,8 +40,6 @@ function Order() {
             [v.id]:v.price
           }
          })
-         console.log(bookOjects);
-        // data = data?.map((v))
         const result = await axios.post("https://logical-calf-89.hasura.app/v1/graphql",{
           query: `mutation Insert_orders($objects: [orders_insert_input!]!) {
             insert_orders(objects: $objects) {
@@ -65,31 +66,30 @@ function Order() {
           dispatch(restartCart())
           navigate('/thanks')
         }
-          else{
-            alert("you need to fill all the fields")
-          }
     }
   if(loadingO){
     return(
       <Loading page={tranzlation[language].Order.page}/>
     )
   }
-   console.log(formD);
 
   return (
     <div className='order-wrap'>
       <div className='order-box'>
         <div className='order-container'>
           <div className='order-title'>{tranzlation[language].Order.title}</div>
+          <form className='form'>
           <div className='inpName-wrap'>
-            <input className='inputShort halfI' placeholder={tranzlation[language].Order.placeHolder.fName} name='firstName' onChange={(e)=>changeD(e)}/>
-            <input className='inputShort halfI' placeholder={tranzlation[language].Order.placeHolder.lName} name='lastName' onChange={(e)=>changeD(e)}/>
+            <input className='inputShort halfI' placeholder={tranzlation[language].Order.placeHolder.fName} name='firstName' onChange={(e)=>changeD(e)} required/>
+            <input className='inputShort halfI' placeholder={tranzlation[language].Order.placeHolder.lName} name='lastName' onChange={(e)=>changeD(e)} required/>
           </div>
-          <input className='inputShort'  placeholder={tranzlation[language].Order.placeHolder.address} name='address' onChange={(e)=>changeD(e)}/>
-          <input className='inputShort' type={'number'} placeholder={tranzlation[language].Order.placeHolder.pNumber} name='phoneNumber' onChange={(e)=>changeD(e)}/>
+          <input className='inputShort'  placeholder={tranzlation[language].Order.placeHolder.address} name='address' onChange={(e)=>changeD(e)} required/>
+          <input className='inputShort' type={'number'} placeholder={tranzlation[language].Order.placeHolder.pNumber} name='phoneNumber' min="0500000000" max="0599999999" onChange={(e)=>changeD(e)} required/>
           <div className='btnB-wrapper'>
-             <div className='btnBuy' onClick={()=>{onClickBuy()}}>{tranzlation[language].Order.btnBuy}</div>
+             <input type={"submit"} className='btnBuy' value={tranzlation[language].Order.btnBuy} onClick={(e)=>{onClickBuy(e)}}></input>
+             {/* <div itemType='submit' className='btnBuy' onClick={()=>{onClickBuy()}}>{tranzlation[language].Order.btnBuy}</div> */}
           </div>
+          </form>
         </div>
       </div>
     </div>

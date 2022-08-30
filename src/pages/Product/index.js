@@ -28,8 +28,6 @@ function Product() {
       }
     }
 
-    console.log(cart);
-
     useEffect(()=>{
       const bringData = async () => {
           
@@ -57,7 +55,6 @@ function Product() {
                 "booksByPkId":  String(id).replace("=","")
               }
             });
-          console.log(result.data.data.books_by_pk);
           setBook(result.data.data.books_by_pk);
           setLoading(true);
       }

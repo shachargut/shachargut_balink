@@ -29,7 +29,6 @@ function Homepage() {
                   address
                 }}`,
             });
-        console.log(result.data.data.stores);
         setStores(result.data.data.stores);
         setLoading(true);
     }
