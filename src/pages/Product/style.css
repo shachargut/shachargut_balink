@@ -107,7 +107,7 @@
     color: #ffffff;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
     .product-wrapper{
         padding-top: 30px;
     }

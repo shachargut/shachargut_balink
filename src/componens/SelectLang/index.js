@@ -3,15 +3,16 @@ import './style.css'
 import{addToCart, changaeLanguage} from '../../redux/action'
 import {useSelector, useDispatch} from 'react-redux'
 
-function SelectLang() {
+function SelectLang({mainElem}) {
   const slanguage = useSelector((state)=> state.languageSelected)
   const dispatch = useDispatch();
+  // const mainElement = elem1.myRef.current;
 
   function changelan(language){
     if(language=='Hebrew'){
-      document.getElementsByClassName('main')[0].setAttribute("dir", "rtl");
+      mainElem.current.setAttribute("dir","rtl")
     }
-    else{document.getElementsByClassName('main')[0].setAttribute("dir", "");}
+    else{mainElem.current.setAttribute("dir","")}
     dispatch(changaeLanguage(language))
   }
 

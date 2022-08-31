@@ -65,9 +65,9 @@ export default{
             page:"פרטי הספר",
             main:{
                 titleDetailes:"פרטי המוצר",
-                Publisher:"המוציא לאור", 
-                Language:"שפה", 
-                Paperback:"מס' עמודים"
+                Publisher:" המוציא לאור", 
+                Language:" שפה", 
+                Paperback:" מס' עמודים"
             },
             nav:{
                 buy:"מחיר",

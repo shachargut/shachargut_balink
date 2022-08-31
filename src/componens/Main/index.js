@@ -10,11 +10,13 @@ import Thanks from '../../pages/Thanks'
 import SelectLang from '../SelectLang'
 
 function Main() {
+  const mainElem = React.createRef();
+
   return (
     <div className='main-main'>
       <div className='margintoptomain'></div>
-    <div className='main'>
-      <SelectLang/>
+    <div className='main' ref={mainElem}>
+      <SelectLang mainElem={mainElem}/>
       <Routes>
         <Route path='/' element={<Homepage/>}/>
         <Route path='/store' element={<Store/>}/>
