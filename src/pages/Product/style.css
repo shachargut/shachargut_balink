@@ -117,6 +117,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        overflow: hidden;
     }
 
     .nav-content{
@@ -137,6 +138,15 @@
         height: 30%;
         overflow: auto;
     }
+    .main-content{
+        height: 70%;
+        width: 80%;
+        overflow: auto;
+    }
+    /* @media (max-height: 600px) {
+        .nav-content{
+            display:none;
+     }} */
 }
 
 @media (max-width: 800px) {
@@ -149,7 +159,11 @@
         font-size: 25px;
         font-weight: 700;
      }
+     .pro-container{
+        overflow: hidden;
+     }
 }
+
 
 @media (max-width: 600px) {
     
