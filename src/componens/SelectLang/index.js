@@ -1,29 +1,43 @@
 import React from 'react'
-import './style.css'
 import{addToCart, changaeLanguage} from '../../redux/action'
 import {useSelector, useDispatch} from 'react-redux'
+import styled from "styled-components";
 
 function SelectLang({mainElem}) {
-  const slanguage = useSelector((state)=> state.languageSelected)
   const dispatch = useDispatch();
-  // const mainElement = elem1.myRef.current;
 
   function changelan(language){
+    console.log(language);
     if(language=='Hebrew'){
       mainElem.current.setAttribute("dir","rtl")
     }
     else{mainElem.current.setAttribute("dir","")}
     dispatch(changaeLanguage(language))
   }
-
-
+  
   return (
-    <div className='lan-selector'>
-        <div onClick={(e)=>{changelan(e.target.className)}} className="English">🇬🇧</div>
-        <div onClick={(e)=>{changelan(e.target.className)}} className="Hebrew">🇮🇱</div>
-        <div onClick={(e)=>{changelan(e.target.className)}} className="French">🇫🇷</div>
-    </div>
+    <LanSelector>
+        <Langue onClick={(e)=>{changelan(e.target.__reactProps$9sm9xv06c5.name)}} name="English">🇬🇧</Langue>
+        <Langue onClick={(e)=>{changelan(e.target.__reactProps$9sm9xv06c5.name)}} name="Hebrew">🇮🇱</Langue>
+        <Langue onClick={(e)=>{changelan(e.target.__reactProps$9sm9xv06c5.name)}} name="French">🇫🇷</Langue>
+    </LanSelector>
   )
 }
 
 export default SelectLang
+
+
+const LanSelector = styled.div`
+    width: 20%;
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+`
+const Langue = styled.div`
+    &:hover{
+      font-size: x-large;
+      cursor: pointer;
+      box-shadow: inset;
+      box-shadow: 0px 2px 13px 5px #edebeb;
+    }
+`

@@ -4,6 +4,7 @@ import tranzlation from '../../languages/tranzlation';
 import {useSelector, useDispatch} from 'react-redux'
 import{deleteItem} from '../../redux/action'
 import { useNavigate } from 'react-router-dom';
+import { Btn } from '../../componens/Button';
 
 function Cart() {
   const [total,setTotal] = useState(0)  
@@ -62,7 +63,7 @@ function Cart() {
         </table>
       </div>
       <div className='btn-n-wrap'>
-          <div className='nextbtn' onClick={()=>NavigateToOrder()}>{tranzlation[language].Cart.btnNext}</div>
+          <Btn fontWeight="660" width="120px"  onClick={()=>NavigateToOrder()}>{tranzlation[language].Cart.btnNext}</Btn>
       </div>
       </div> 
     </div>

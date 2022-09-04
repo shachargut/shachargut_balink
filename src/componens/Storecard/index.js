@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.css'
 import { useNavigate } from 'react-router-dom';
+import { BcartContent, Card, TextArea } from '../Card.style';
 
 
 function Storecard(props) {
@@ -12,14 +13,14 @@ function Storecard(props) {
     }
 
   return (
-    <div className='storecard' onClick={()=>{onClickStore(props.id)}}>
-        <div className='cart-content'>
-          <div style={{"font-size":"100px"}}>🏪</div>
-          <div style={{"fontWeight":"600"}}>{props.name}</div>
-          <div style={{"fontWeight":"600"}}>{props.address}</div>
-          <div style={{"fontWeight":"600"}}>{props.city}</div>
-        </div>
-    </div>
+    <Card height="220px" width="250px" onClick={()=>{onClickStore(props.id)}}>
+        <BcartContent flexDirection="column"> 
+          <TextArea fontSize="100px">🏪</TextArea>
+          <TextArea fontWeight="600">{props.name}</TextArea>
+          <TextArea fontWeight="600">{props.address}</TextArea>
+          <TextArea fontWeight="600">{props.city}</TextArea>
+        </BcartContent> 
+    </Card>    
   )
 }
 

@@ -1,15 +1,20 @@
 import React from 'react'
 import Main from '../Main'
 import Header from '../Header'
-import './style.css'
+import styled from "styled-components";
+
 
 function Layout() {
   return (
-    <div className='Layout'>
+    <LayoutS>
       <Header/>
       <Main/>
-    </div>
+    </LayoutS>
   )
 }
 
 export default Layout
+
+const LayoutS = styled.div`
+    height: 100vh;
+`

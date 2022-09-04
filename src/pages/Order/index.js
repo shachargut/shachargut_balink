@@ -19,7 +19,7 @@ function Order() {
    function changeD(e){
     const name = e.target.name;
     const value = e.target.value;
-    
+
     setFormD((currentFormData)=>{
       return {
         ...currentFormData,
@@ -83,7 +83,7 @@ function Order() {
             <input className='inputShort halfI' placeholder={tranzlation[language].Order.placeHolder.lName} name='lastName' onChange={(e)=>changeD(e)} required/>
           </div>
           <input className='inputShort'  placeholder={tranzlation[language].Order.placeHolder.address} name='address' onChange={(e)=>changeD(e)} required/>
-          <input className='inputShort' type={'number'} placeholder={tranzlation[language].Order.placeHolder.pNumber} name='phoneNumber' min="0500000000" max="0599999999" onChange={(e)=>changeD(e)} required/>
+          <input className='inputShort' type={'number'} placeholder={tranzlation[language].Order.placeHolder.pNumber} name='phoneNumber' minLength={'10'} maxLength={'10'}  min="0500000000" max="0599999999" onChange={(e)=>changeD(e)} required/>
           <div className='btnB-wrapper'>
              <input type={"submit"} className='btnBuy' value={tranzlation[language].Order.btnBuy} onClick={(e)=>{onClickBuy(e)}}></input>
              {/* <div itemType='submit' className='btnBuy' onClick={()=>{onClickBuy()}}>{tranzlation[language].Order.btnBuy}</div> */}

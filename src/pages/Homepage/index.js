@@ -5,6 +5,8 @@ import Storecard from '../../componens/Storecard';
 import tranzlation from '../../languages/tranzlation';
 import {useSelector, useDispatch} from 'react-redux'
 import './style.css'
+import styled from "styled-components";
+import { PageContainer, WraPpage } from '../../componens/Pages';
 
 function Homepage() {
   const [stores,setStores] = useState([]);
@@ -44,12 +46,12 @@ function Homepage() {
   } 
 
   return (
-    <div className='home-page'>
-    <div className='hp-container'>
-        {stores?.map((v)=><Storecard {...v}/>)}
-    </div>
-    </div>
+    <WraPpage>
+         <PageContainer>{stores?.map((v)=><Storecard {...v}/>)}</PageContainer>
+    </WraPpage>
   )
 }
 
 export default Homepage
+
+

@@ -7,6 +7,7 @@ import { useSearchParams } from 'react-router-dom'
 import Storecard from '../../componens/Storecard';
 import Bookcard from '../../componens/Bookcard';
 import Loading from '../../componens/Loading';
+import { PageContainer, WraPpage } from '../../componens/Pages';
 
 function Store() {
     const [books,setBooks] = useState([]);
@@ -52,11 +53,9 @@ function Store() {
     } 
   
     return (
-      <div className='store-page'>
-      <div className='st-container'>
-          {books?.map((book)=><Bookcard {...book}/>)}
-      </div>
-      </div>
+      <WraPpage>
+           <PageContainer>{books?.map((book)=><Bookcard {...book}/>)}</PageContainer>
+      </WraPpage>
     )
   }
 export default Store

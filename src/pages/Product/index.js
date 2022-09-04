@@ -1,11 +1,14 @@
-import './style.css'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { BcartContent, Card, DivWrapper, TextArea } from '../../componens/Card.style';
 import tranzlation from '../../languages/tranzlation';
 import { useSearchParams } from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import{addToCart,updateCart} from '../../redux/action'
 import Loading from '../../componens/Loading'
+import { Title } from '../../componens/Title';
+import { ContentFooter, MainContent, MainDescription, Nav, NavContainer, NavHeader, NavHwRAP, ProContainer, ProductWrapper, Rating, WrapContentFooter, WrapperCenter } from '../../componens/Product.style';
+import { Btn } from '../../componens/Button';
 
 function Product() {
     const [book,setBook] = useState([]);
@@ -70,44 +73,44 @@ function Product() {
     } 
   
     return (
-      <div className='product-wrapper'>
-       <div className='pro-container'>
-        <div className='main-content'>
-            <div className='main-header'>
-                <div className='t-bookname'>{book.name}</div>
-                <div className='author'>{book.author}</div>
-                <div className='rating'>
-                    <div className='stars'>{`⭐️`.repeat(book.stars)}</div>
-                    <div className='rating'>{`(${book.ratings} rating)`}</div>
-                </div>
-            </div>
-            <div className='main-description'>
+      <ProductWrapper>
+       <ProContainer>
+        <MainContent>
+            <DivWrapper>
+                <Title justifyContent="center" fontSize="35px" fontWeight="700">{book.name}</Title>
+                <Title justifyContent="center" fontSize="20px" fontWeight="500">{book.author}</Title>
+                <WrapperCenter>
+                    <TextArea>{`⭐️`.repeat(book.stars)}</TextArea>
+                    <TextArea>{`(${book.ratings} rating)`}</TextArea>
+                </WrapperCenter>
+            </DivWrapper>
+            <MainDescription>
                 {book.description}
-            </div>
-            <div className='main-footer'>
-                <div className='PD-details'>{tranzlation[language].Product.main.titleDetailes}:</div>
-                <div className='wrap-content-footer'>
-                    <div className='content-footer'><div style={{"font-weight":"550"}}>{tranzlation[language].Product.main.Publisher}: </div><div style={{"margin-left":"1%"}}>{book.publisher}</div></div>
-                    <div className='content-footer'><div style={{"font-weight":"550"}}>{tranzlation[language].Product.main.Language}: </div><div style={{"margin-left":"1%"}}> {book.language}</div></div>
-                    <div className='content-footer'><div style={{"font-weight":"550"}}>{tranzlation[language].Product.main.Paperback}: </div><div style={{"margin-left":"1%"}}> {book.paperback}</div></div>
-                </div>
-            </div>
-        </div>
-        <div className='nav-content'>
-            <div className='container-nav'>
-                <div className='wrap-h-c'>
-                 <div className='nav-header'>
-                    <div>{tranzlation[language].Product.nav.buy}:</div><div>{book.price}€</div>
-                    <div>{tranzlation[language].Product.nav.quantity}:</div><div>{book.quantity}</div>
-                 </div>
-               </div>
-               <div className='nav-footer'>
-                 <div className='addToCartbtn' onClick={()=>{addBookToCart()}}>{tranzlation[language].Product.nav.btnAddToCart}</div>
-               </div>
-            </div>
-        </div>
-        </div>
-      </div>
+            </MainDescription>
+            <DivWrapper>
+                <Title justifyContent="start" fontSize="30px" fontWeight="580">{tranzlation[language].Product.main.titleDetailes}:</Title>
+                <WrapContentFooter>
+                    <ContentFooter><TextArea fontWeight="550">{tranzlation[language].Product.main.Publisher}:</TextArea><TextArea marginLeft="1%">{book.publisher}</TextArea></ContentFooter>
+                    <ContentFooter><TextArea fontWeight="550">{tranzlation[language].Product.main.Language}:</TextArea><TextArea marginLeft="1%">{book.language}</TextArea></ContentFooter>
+                    <ContentFooter><TextArea fontWeight="550">{tranzlation[language].Product.main.Paperback}:</TextArea><TextArea marginLeft="1%">{book.paperback}</TextArea></ContentFooter>
+                </WrapContentFooter>
+            </DivWrapper>
+        </MainContent>
+        <Nav>
+            <NavContainer>
+                <NavHwRAP>
+                 <NavHeader>
+                    <TextArea>{tranzlation[language].Product.nav.buy}:</TextArea><TextArea>{book.price}€</TextArea>
+                    <TextArea>{tranzlation[language].Product.nav.quantity}:</TextArea><TextArea>{book.quantity}</TextArea>
+                 </NavHeader>
+               </NavHwRAP>
+               <WrapperCenter>
+                 <Btn width="148px" onClick={()=>{addBookToCart()}}>{tranzlation[language].Product.nav.btnAddToCart}</Btn>
+               </WrapperCenter>
+            </NavContainer>
+        </Nav>
+        </ProContainer>
+      </ProductWrapper>
     )
   }
 export default Product
