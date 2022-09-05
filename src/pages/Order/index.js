@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import './style.css'
 import axios from 'axios'
 import tranzlation from '../../languages/tranzlation';
 import {useSelector, useDispatch} from 'react-redux'
 import{addOrderDetails, addToCart, restartCart} from '../../redux/action'
 import { useNavigate,useLocation } from 'react-router-dom';
 import Loading from '../../componens/Loading'
+import { WraPpage } from '../../componens/Pages';
+import { BtnBuy, Form, Input, OrderBox, OrderContainer, WrapperI } from '../../componens/Order.style';
+import { Title } from '../../componens/Title';
 
 function Order() {
    const [formD, setFormD] = useState({})
@@ -73,25 +75,24 @@ function Order() {
   }
 
   return (
-    <div className='order-wrap'>
-      <div className='order-box'>
-        <div className='order-container'>
-          <div className='order-title'>{tranzlation[language].Order.title}</div>
-          <form className='form'>
-          <div className='inpName-wrap'>
-            <input className='inputShort halfI' placeholder={tranzlation[language].Order.placeHolder.fName} name='firstName' onChange={(e)=>changeD(e)} required/>
-            <input className='inputShort halfI' placeholder={tranzlation[language].Order.placeHolder.lName} name='lastName' onChange={(e)=>changeD(e)} required/>
-          </div>
-          <input className='inputShort'  placeholder={tranzlation[language].Order.placeHolder.address} name='address' onChange={(e)=>changeD(e)} required/>
-          <input className='inputShort' type={'number'} placeholder={tranzlation[language].Order.placeHolder.pNumber} name='phoneNumber' minLength={'10'} maxLength={'10'}  min="0500000000" max="0599999999" onChange={(e)=>changeD(e)} required/>
-          <div className='btnB-wrapper'>
-             <input type={"submit"} className='btnBuy' value={tranzlation[language].Order.btnBuy} onClick={(e)=>{onClickBuy(e)}}></input>
-             {/* <div itemType='submit' className='btnBuy' onClick={()=>{onClickBuy()}}>{tranzlation[language].Order.btnBuy}</div> */}
-          </div>
-          </form>
-        </div>
-      </div>
-    </div>
+    <WraPpage height="100%" alignItem="center">
+      <OrderBox>
+        <OrderContainer>
+          <Title justifyContent="center" fontSize="2rem" fontWeight="400">{tranzlation[language].Order.title}</Title>
+          <Form>
+            <WrapperI width='100%' justifyContent="space-between">
+              <Input width='45%' placeholder={tranzlation[language].Order.placeHolder.fName} name='firstName' onChange={(e)=>changeD(e)} required/>
+              <Input width='45%' placeholder={tranzlation[language].Order.placeHolder.lName} name='lastName' onChange={(e)=>changeD(e)} required/>
+            </WrapperI>
+            <Input placeholder={tranzlation[language].Order.placeHolder.address} name='address' onChange={(e)=>changeD(e)} required/>
+            <Input type={'number'} placeholder={tranzlation[language].Order.placeHolder.pNumber} name='phoneNumber' minLength={'10'} maxLength={'10'}  min="0500000000" max="0599999999" onChange={(e)=>changeD(e)} required/>
+            <WrapperI justifyContent="center">
+              <BtnBuy type={"submit"}value={tranzlation[language].Order.btnBuy} onClick={(e)=>{onClickBuy(e)}}/>
+            </WrapperI>
+          </Form>
+        </OrderContainer>
+      </OrderBox>
+    </WraPpage>
   )
 }
 

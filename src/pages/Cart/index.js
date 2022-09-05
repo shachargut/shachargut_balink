@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import './style.css'
 import tranzlation from '../../languages/tranzlation';
 import {useSelector, useDispatch} from 'react-redux'
 import{deleteItem} from '../../redux/action'
 import { useNavigate } from 'react-router-dom';
 import { Btn } from '../../componens/Button';
+import { WraPpage } from '../../componens/Pages';
+import { CartTable, CartWrap, Table, Td, Th, Tr, WrapBtbNext } from '../../componens/Cart.style';
 
 function Cart() {
   const [total,setTotal] = useState(0)  
@@ -34,39 +35,39 @@ function Cart() {
   },[cart])
 
   return (
-    <div className='cart'>
-      <div className='cart-wrap'> 
-      <div className='cart-table'>
-        <table>
-            <tr>
-               <th>{tranzlation[language].Cart.table.fristLine.Name}</th>
-               <th>{tranzlation[language].Cart.table.fristLine.Quantity}</th>
-               <th>{tranzlation[language].Cart.table.fristLine.Price}</th>
-               <th>{tranzlation[language].Cart.table.fristLine.Del}</th>
-             </tr>
+    <WraPpage height="100%" alignItem="center">
+      <CartWrap> 
+      <CartTable>
+        <Table>
+            <Tr>
+               <Th>{tranzlation[language].Cart.table.fristLine.Name}</Th>
+               <Th>{tranzlation[language].Cart.table.fristLine.Quantity}</Th>
+               <Th>{tranzlation[language].Cart.table.fristLine.Price}</Th>
+               <Th>{tranzlation[language].Cart.table.fristLine.Del}</Th>
+             </Tr>
         {cart?.map((v)=>{
             return(
-                <tr>
-                   <td><div style={{"fontWeight":"660"}}>{v.name}</div>{v.description}</td>
-                   <td>{v.quantity}</td>
-                   <td>{v.price} €</td>
-                   <td className='garbage'onClick={()=>deleteItemFromCart(v)}>🗑️</td>
-                 </tr>
+                <Tr>
+                   <Td><div style={{"fontWeight":"660"}}>{v.name}</div>{v.description}</Td>
+                   <Td>{v.quantity}</Td>
+                   <Td>{v.price} €</Td>
+                   <Td className='garbage'onClick={()=>deleteItemFromCart(v)}>🗑️</Td>
+                 </Tr>
             )
         })}
-                 <tr>
-                 <th>{tranzlation[language].Cart.table.totalPay}</th>
-                   <td></td>
-                   <td>{total} €</td>
-                   <td></td>
-                 </tr>
-        </table>
-      </div>
-      <div className='btn-n-wrap'>
+                 <Tr>
+                 <Th>{tranzlation[language].Cart.table.totalPay}</Th>
+                   <Td></Td>
+                   <Td>{total} €</Td>
+                   <Td></Td>
+                 </Tr>
+        </Table>
+      </CartTable>
+      <WrapBtbNext>
           <Btn fontWeight="660" width="120px"  onClick={()=>NavigateToOrder()}>{tranzlation[language].Cart.btnNext}</Btn>
-      </div>
-      </div> 
-    </div>
+      </WrapBtbNext>
+      </CartWrap> 
+    </WraPpage>
   )
 }
 

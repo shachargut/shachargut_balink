@@ -4,7 +4,6 @@ import Loading from '../../componens/Loading';
 import Storecard from '../../componens/Storecard';
 import tranzlation from '../../languages/tranzlation';
 import {useSelector, useDispatch} from 'react-redux'
-import './style.css'
 import styled from "styled-components";
 import { PageContainer, WraPpage } from '../../componens/Pages';
 

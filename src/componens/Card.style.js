@@ -41,7 +41,7 @@ export const FooterBook = styled.div`
 export const TextArea = styled.div`
     font-size:${(props) => props.fontSize};
     font-weight:${(props) => props.fontWeight};
-    margin-left:${(props) => props.marginLeft}
+    margin-left:${(props) => props.marginLeft};
 `
 export const DivWrapper = styled.div`
     

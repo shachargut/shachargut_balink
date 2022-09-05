@@ -1,7 +1,6 @@
 import React from 'react'
 import logo from '../../assest/image/logoRead.png'
 import {useSelector, useDispatch} from 'react-redux'
-import './style.css'
 import {CartLogo,CounterProduct, Hcontainer, HeaderLogo,HeaderA } from './HeaderStyle'
 import { useNavigate } from 'react-router-dom';
 import { DivWrapper } from '../Card.style'

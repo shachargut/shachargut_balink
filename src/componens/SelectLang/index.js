@@ -7,7 +7,6 @@ function SelectLang({mainElem}) {
   const dispatch = useDispatch();
 
   function changelan(language){
-    console.log(language);
     if(language=='Hebrew'){
       mainElem.current.setAttribute("dir","rtl")
     }
@@ -17,9 +16,9 @@ function SelectLang({mainElem}) {
   
   return (
     <LanSelector>
-        <Langue onClick={(e)=>{changelan(e.target.__reactProps$9sm9xv06c5.name)}} name="English">🇬🇧</Langue>
-        <Langue onClick={(e)=>{changelan(e.target.__reactProps$9sm9xv06c5.name)}} name="Hebrew">🇮🇱</Langue>
-        <Langue onClick={(e)=>{changelan(e.target.__reactProps$9sm9xv06c5.name)}} name="French">🇫🇷</Langue>
+        <Langue onClick={(e)=>{changelan(e.target.id)}} id="English">🇬🇧</Langue>
+        <Langue onClick={(e)=>{changelan(e.target.id)}} id="Hebrew">🇮🇱</Langue>
+        <Langue onClick={(e)=>{changelan(e.target.id)}} id="French">🇫🇷</Langue>
     </LanSelector>
   )
 }

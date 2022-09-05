@@ -77,7 +77,7 @@ function Product() {
        <ProContainer>
         <MainContent>
             <DivWrapper>
-                <Title justifyContent="center" fontSize="35px" fontWeight="700">{book.name}</Title>
+                <Title justifyContent="center" fontSize="35px" fontSizeE="25px" fontWeight="700">{book.name}</Title>
                 <Title justifyContent="center" fontSize="20px" fontWeight="500">{book.author}</Title>
                 <WrapperCenter>
                     <TextArea>{`⭐️`.repeat(book.stars)}</TextArea>
@@ -88,7 +88,7 @@ function Product() {
                 {book.description}
             </MainDescription>
             <DivWrapper>
-                <Title justifyContent="start" fontSize="30px" fontWeight="580">{tranzlation[language].Product.main.titleDetailes}:</Title>
+                <Title justifyContent="start" fontSize="30px" fontSizeE="25px" fontWeight="580">{tranzlation[language].Product.main.titleDetailes}:</Title>
                 <WrapContentFooter>
                     <ContentFooter><TextArea fontWeight="550">{tranzlation[language].Product.main.Publisher}:</TextArea><TextArea marginLeft="1%">{book.publisher}</TextArea></ContentFooter>
                     <ContentFooter><TextArea fontWeight="550">{tranzlation[language].Product.main.Language}:</TextArea><TextArea marginLeft="1%">{book.language}</TextArea></ContentFooter>

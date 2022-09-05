@@ -1,5 +1,4 @@
 import React from 'react'
-import './style.css'
 import tranzlation from '../../languages/tranzlation'
 import {useSelector, useDispatch} from 'react-redux'
 import styled from "styled-components";

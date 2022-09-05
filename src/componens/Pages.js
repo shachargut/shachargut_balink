@@ -2,8 +2,10 @@ import styled from "styled-components";
 
 export const WraPpage = styled.div`
   width: 100%;
+  height: ${(props) => props.height};
   display: flex;
   justify-content: center;
+  align-items: ${(props) => props.alignItem};
 `
 export const PageContainer = styled.div`
   width: 95%;
